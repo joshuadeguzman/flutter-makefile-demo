@@ -1,16 +1,22 @@
-# flutter_makefile_demo
+# flutter-makefile-demo
 
-A new Flutter project.
+An example of using `make` to give a Flutter project short, consistent commands. It's the companion code for the blog post [Flutter Makefiles](https://joshuamdeguzman.com/flutter-makefiles/).
 
-## Getting Started
+## Commands
 
-This project is a starting point for a Flutter application.
+| Command | What it runs |
+|---|---|
+| `make analyze` | `flutter analyze` |
+| `make format` | `flutter format .` |
+| `make test` | `flutter test` |
+| `make codegen` | `flutter pub run build_runner build --delete-conflicting-outputs` |
+| `make fetch-main` | `git fetch origin main` |
+| `make rebase-main` | `git pull --rebase origin main` |
 
-A few resources to get you started if this is your first Flutter project:
+The `Makefile` finds the Flutter and Dart binaries from whatever `flutter` is on your `PATH`, so it works the same on every machine and in CI.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Why make
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- One short command instead of long flags everyone has to remember.
+- The same commands locally and in CI.
+- Works on macOS and Linux with nothing extra to install.
